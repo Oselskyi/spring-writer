@@ -5,9 +5,9 @@ import com.learning.csv.writer.entiy.Interaction;
 import com.learning.csv.writer.entiy.Person;
 
 public class WriterFactory {
-
+    private String path = " ";
     public Writer getWriter(AllowToWrite object){
-        String path = " ";
+
         if (object instanceof Person){
             path = object.getClass().getSimpleName();
         } else if (object instanceof Interaction){
@@ -15,5 +15,9 @@ public class WriterFactory {
         }
 
         return new CSVWriter(path + ".csv");
+    }
+
+    public String getPath() {
+        return path;
     }
 }
